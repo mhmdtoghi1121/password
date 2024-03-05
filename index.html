@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body{
+            background-image: linear-gradient(to right, #56e2d7 0%, #58cff1 100%);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container{
+            background-color: #fff;
+            width: 450px;
+            height: 95px;
+            text-align: center;
+            padding: 20px;
+            border-radius: 5px;
+            position: relative;
+        }
+        .container::after{
+            content: '';
+            width: 3px;
+            height: 38%;
+            background-color: #ddd;
+            display: block;
+            position: absolute;
+            top: 29px;
+            right: 82px;
+        }
+        #username{
+            width: 100%;
+            height: 100%;
+            padding-left: 50px;
+            font-size: 18px;
+            border: 2px solid #ddd;
+            color: #a09c9c;
+            outline-color: #56e2d7;
+        }
+        #username::placeholder{
+            color: #a09c9c;
+            letter-spacing: 2px;
+        }
+        .container i{
+            position: absolute;
+            top: 40px;
+            left: 40px;
+            font-size: 20px;
+            color: #716d6d;
+        }
+        .number {
+            position: absolute;
+            color: #a09c9c;
+            font-size: 25px;
+            font-weight: 600;
+            right: 40px;
+            top: 35px;
+        }
+        @media (max-width : 400px){
+            .container{
+                margin: 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <i class="fa fa-at"></i>
+        <input type="text" autocomplete="off" placeholder="username" id="username" maxlength="19">
+        <span class="number">19</span>
+    </div>
+
+    <script>
+        let input = document.getElementById("username")
+        let maxLength = document.querySelector(".number")
+
+        input.addEventListener("keyup" , function(){
+        maxLength.innerHTML = (input.maxLength) - (input.value.length)
+        })
+    </script>
+</body>
+</html>
